@@ -1,0 +1,9 @@
+{
+  "name": "ActivityBox-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/ActivityBox-e2e/src",
+  "implicitDependencies": ["ActivityBox"],
+  "// targets": "to see all targets run: nx show project ActivityBox-e2e --web",
+  "targets": {}
+}
