@@ -1,0 +1,12 @@
+[
+  {
+    "eslint.enable": true,
+    "eslint.lintTask.enable": true
+  },
+  {
+    "npm.packageManager": "npm"
+  },
+  {
+    "prettier.enable": true
+  }
+]

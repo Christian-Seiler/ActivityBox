@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+nx affected -t lint format --parallel=5
