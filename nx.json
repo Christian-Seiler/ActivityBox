@@ -50,7 +50,11 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/backend-e2e/**/*"]
+      "exclude": [
+        "apps/backend-e2e/**/*",
+        "apps/backend/apps/api-e2e/**/*",
+        "apps/api-e2e/**/*"
+      ]
     }
   ],
   "generators": {
