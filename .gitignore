@@ -45,3 +45,6 @@ test-output
 
 # Keep environment variables out of version control
 .env
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
+/dbdata/

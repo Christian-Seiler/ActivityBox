@@ -12,7 +12,7 @@
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
-    "sharedGlobals": []
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
   "plugins": [
     {
@@ -28,8 +28,7 @@
           "watchDepsName": "watch-deps"
         }
       }
-    },
-    {
+    }, {
       "plugin": "@nx/webpack/plugin",
       "options": {
         "buildTargetName": "build",
@@ -38,23 +37,30 @@
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
       }
-    },
-    {
+    }, {
       "plugin": "@nx/eslint/plugin",
       "options": {
         "targetName": "lint"
       }
-    },
-    {
+    }, {
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
       },
-      "exclude": [
-        "apps/backend-e2e/**/*",
-        "apps/backend/apps/api-e2e/**/*",
-        "apps/api-e2e/**/*"
-      ]
+      "exclude": ["apps/backend-e2e/**/*"]
+    }, {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "devTargetName": "dev",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static",
+        "typecheckTargetName": "typecheck",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
     }
   ],
   "generators": {
@@ -63,8 +69,22 @@
     }
   },
   "targetDefaults": {
-    "test": {
+    "build": {
+      "cache": true
+    },
+    "@nx/jest:test": {
+      "cache": true,
       "dependsOn": ["^build"]
+    },
+    "@nx/vite:test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
+    },
+    "@nx/js:swc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
-  }
+  },
+  "nxCloudId": "67e4a9b1c8a07059dcc58c43"
 }

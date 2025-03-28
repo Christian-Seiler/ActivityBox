@@ -1,16 +1,25 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/backend",
+    "target": "es2022",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
+  },
   "files": [],
   "include": [],
   "references": [
     {
+      "path": "./tsconfig.editor.json"
+    }, {
       "path": "./tsconfig.app.json"
-    },
-    {
+    }, {
       "path": "./tsconfig.spec.json"
-    },
-    {
-      "path": "./tsconfig.prisma.json"
     }
-  ]
+  ],
+  "extends": "../../tsconfig.base.json"
 }
