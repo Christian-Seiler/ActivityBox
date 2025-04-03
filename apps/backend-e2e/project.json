@@ -1,7 +1,7 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "backend-e2e",
-  "implicitDependencies": ["backend"],
+  "name": "@activity-box/backend-e2e",
+  "implicitDependencies": ["@activity-box/backend"],
   "targets": {
     "e2e": {
       "executor": "@nx/jest:jest",

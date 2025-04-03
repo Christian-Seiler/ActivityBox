@@ -8,7 +8,6 @@
       "!{projectRoot}/eslint.config.mjs",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
@@ -29,25 +28,10 @@
         }
       }
     }, {
-      "plugin": "@nx/webpack/plugin",
-      "options": {
-        "buildTargetName": "build",
-        "serveTargetName": "serve",
-        "previewTargetName": "preview",
-        "buildDepsTargetName": "build-deps",
-        "watchDepsTargetName": "watch-deps"
-      }
-    }, {
       "plugin": "@nx/eslint/plugin",
       "options": {
         "targetName": "lint"
       }
-    }, {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      },
-      "exclude": ["apps/backend-e2e/**/*"]
     }, {
       "plugin": "@nx/vite/plugin",
       "options": {
@@ -72,10 +56,6 @@
     "build": {
       "cache": true
     },
-    "@nx/jest:test": {
-      "cache": true,
-      "dependsOn": ["^build"]
-    },
     "@nx/vite:test": {
       "cache": true,
       "inputs": ["default", "^production"]
@@ -86,5 +66,5 @@
       "inputs": ["production", "^production"]
     }
   },
-  "nxCloudId": "67e4a9b1c8a07059dcc58c43"
+  "nxCloudId": "67ee961b66f2822d9b1550c6"
 }

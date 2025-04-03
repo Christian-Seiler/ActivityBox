@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../../../node_modules/.prisma/client"
+  previewFeatures = []
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Activity {
+  id          String     @id @default(uuid(7))
+  slug        String     @unique
+  name        String
+  description String?
+  url         String?
+  category    Category   @relation(fields: [categoryId], references: [id])
+  location    Location?  @relation(fields: [locationId], references: [id])
+  prices      Price[]
+  discounts   Discount[]
+  tags        Tag[]
+
+  categoryId String
+  locationId String
+}
+
+model Category {
+  id       String     @id
+  name     String
+  color    String
+  Activity Activity[]
+}
+
+model Location {
+  id       String     @id
+  city     String
+  state    String
+  country  String
+  Activity Activity[]
+
+  @@unique([city, state, country])
+}
+
+model Price {
+  id         Int       @id @default(autoincrement())
+  name       String
+  amount     Float
+  Activity   Activity? @relation(fields: [activityId], references: [id])
+  activityId String?
+}
+
+model Discount {
+  id         Int       @id @default(autoincrement())
+  Activity   Activity? @relation(fields: [activityId], references: [id])
+  activityId String?
+}
+
+model Tag {
+  name       String     @id
+  activities Activity[]
+}

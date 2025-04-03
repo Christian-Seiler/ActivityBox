@@ -8,6 +8,15 @@
     },
     {
       "path": "./apps/backend"
+    },
+    {
+      "path": "./tools/prisma"
+    },
+    {
+      "path": "./libs/prisma-schema"
+    },
+    {
+      "path": "./libs/prisma-client"
     }
   ]
 }

@@ -5,6 +5,14 @@ onlyBuiltDependencies:
   - '@prisma/client'
   - '@prisma/engines'
   - '@swc/core'
-  - esbuild
-  - nx
-  - prisma
+  - 'esbuild'
+  - 'nx'
+  - 'prisma'
+
+catalogs:
+  prisma:
+    prisma: latest
+
+packages:
+  - "apps/*"
+  - "libs/*"

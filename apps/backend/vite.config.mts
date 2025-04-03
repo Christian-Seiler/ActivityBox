@@ -27,5 +27,6 @@ export default defineConfig(() => ({
       'class-validator',
       'fastify-swagger'
     ]
-  }
+  },
+  test: {}
 }))

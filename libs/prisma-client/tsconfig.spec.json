@@ -1,7 +1,9 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "types": ["node", "vitest/globals", "vitest/importMeta", "vite/client", "vitest"]
+    "types": [
+      "node", "vitest/globals", "vitest/importMeta", "vite/client", "vitest"
+    ]
   },
   "include": [
     "vite.config.mts",
